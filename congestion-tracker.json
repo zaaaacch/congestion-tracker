@@ -1,0 +1,51 @@
+{
+  "info": {
+    "name": "Compute Route Duration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Route Duration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Goog-Api-Key",
+            "value": "{{GOOGLE_KEY}}"
+          },
+          {
+            "key": "X-Goog-FieldMask",
+            "value": "routes.legs.duration"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"origin\":      { \"address\": \"1886 Amelia Oaks Dr, Fernandina Beach, FL 32034\" },\n  \"destination\": { \"address\": \"96178 Sea Winds Dr, Fernandina Beach, FL 32034\" },\n  \"routingPreference\": \"TRAFFIC_UNAWARE\"\n}"
+        },
+        "url": {
+          "raw": "https://routes.googleapis.com/directions/v2:computeRoutes?fields=routes.legs.duration",
+          "protocol": "https",
+          "host": [
+            "routes",
+            "googleapis",
+            "com"
+          ],
+          "path": [
+            "directions",
+            "v2:computeRoutes"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "routes.legs.duration"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
