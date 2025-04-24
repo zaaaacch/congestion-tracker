@@ -2,8 +2,10 @@ name: Fetch Traffic Duration
 
 # run every 30 minutes
 on:
+on:
+  workflow_dispatch:     # ← allows manual runs
   schedule:
-    - cron: '*/30 * * * *'  # UTC
+    - cron: '*/30 * * * *'
 
 jobs:
   compute-duration:
