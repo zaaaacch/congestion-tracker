@@ -1,0 +1,22 @@
+name: Fetch Traffic Duration
+
+# run every 30 minutes
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # UTC
+
+jobs:
+  compute-duration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Postman Collection
+        uses: matt-ball/newman-action@master
+        with:
+          collection: postman/computeRoutes.json
+          reporters: cli,json
+        env:
+          GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
